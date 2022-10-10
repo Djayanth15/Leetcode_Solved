@@ -1,0 +1,43 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        HashMap<Character, Integer> table= new HashMap<Character, Integer>();
+        HashMap<Character, Integer> table2= new HashMap<Character, Integer>();
+        
+        for(char i: s.toCharArray()){
+            if(table.containsKey(i))
+                table.put(i,table.get(i)+1);
+            else
+                table.put(i,1);
+        }
+        
+        for(char j: t.toCharArray()){
+            if(table2.containsKey(j))
+                table2.put(j,table2.get(j)+1);
+            else
+                table2.put(j,1);
+        }
+        
+        if(table.equals(table2)){
+            return true;
+        }
+        return false;
+    }
+}
+
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+//         HashMap<Character,Integer> smap=new HashMap<>();
+//         int sl=s.length();
+//         int tl=t.length();
+//         if(sl!=tl){return false;}
+//         for(int i=0;i<sl;i++){
+//             smap.put(s.charAt(i),smap.getOrDefault(s.charAt(i),0)+1);
+//             smap.put(t.charAt(i),smap.getOrDefault(t.charAt(i),0)-1);
+//         }
+//         for(char c:smap.keySet()){
+//             if(smap.get(c)!=0){return false;}
+//         }
+        
+//         return true;
+//     }
+// }
